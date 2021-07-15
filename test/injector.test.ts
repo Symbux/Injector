@@ -48,6 +48,10 @@ describe('@symbux/injector', () => {
 				Injector.register('some_number', 2345, true);
 			}).not.toThrowError();
 		});
+
+		it('should allow the user to list out all registered keys', () => {
+			expect(Injector.list()).toContain('some_class');
+		});
 	});
 
 	describe('@Provide decorator', () => {
@@ -60,12 +64,21 @@ describe('@symbux/injector', () => {
 			constructor(public some_str: string) {}
 		}
 
+		@Provide()
+		class SomeProvider2 {
+			constructor(public some_str: string) {}
+		}
+
 		it('should register a valid injectable', () => {
 			expect(Injector.resolve('some_provider')).toBeInstanceOf(SomeProvider);
 		});
 
 		it('should support constructor arguments', () => {
 			expect(Injector.resolve('some_provider1').some_str).toBe('constructor_string');
+		});
+
+		it ('should allow no name, if so, use class target name', () => {
+			expect(Injector.resolve('SomeProvider2')).toBeInstanceOf(SomeProvider2);
 		});
 
 		it('should add provider:name metadata', () => {

@@ -14,15 +14,18 @@ import { Injector } from '../module/injector';
 export function Provide(name?: string, options?: Array<any>, overwrite?: boolean): Function {
 	return (target: any) => {
 
+		// Define the name.
+		const providerName = name || target.name;
+
 		// Define base metadata.
 		Reflect.defineMetadata('engine:module', 'provider', target);
-		Reflect.defineMetadata('provider:name', name || target.name, target);
+		Reflect.defineMetadata('provider:name', providerName, target);
 
 		// Register the new class with or without arguments.
 		if (options && options.length > 0) {
-			Injector.register(name || target.name, new target(...options), overwrite);
+			Injector.register(providerName, new target(...options), overwrite);
 		} else {
-			Injector.register(name || target.name, new target(), overwrite);
+			Injector.register(providerName, new target(), overwrite);
 		}
 	};
 }
