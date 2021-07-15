@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A dependecy injection library using TypeScript decorators.",
   "main": "lib/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "rm -rf lib && tsc",
     "lint": "eslint . --ext .ts",

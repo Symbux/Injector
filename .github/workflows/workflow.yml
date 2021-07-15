@@ -1,4 +1,4 @@
-name: Build, Lint & Test
+name: Test
 on: [push, pull_request]
 jobs:
   run:
@@ -14,3 +14,10 @@ jobs:
         run: npm run build
       - name: Run tests
         run: npm test
+      - name: Publish coverage
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          flags: unittests
+          verbose: true
+          fail_ci_if_error: false
