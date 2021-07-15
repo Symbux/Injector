@@ -1,6 +1,6 @@
 {
   "name": "@symbux/injector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A dependecy injection library using TypeScript decorators.",
   "main": "lib/index.js",
   "publishConfig": {
