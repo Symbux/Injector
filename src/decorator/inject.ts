@@ -7,7 +7,7 @@ import { Injector } from '../module/injector';
  * variable instead to inject as the property.
  * 
  * @param name Optional name of injectable.
- * @returns Function.
+ * @returns Function
  */
 export function Inject(name?: string): Function {
 	return (target: Record<string, unknown>, propertyKey: string) => {

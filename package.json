@@ -7,6 +7,7 @@
     "access": "public"
   },
   "scripts": {
+    "start": "ts-node demo/index.ts",
     "build": "rm -rf lib && tsc",
     "lint": "eslint . --ext .ts",
     "test": "jest"
@@ -40,6 +41,7 @@
     "eslint": "^7.30.0",
     "jest": "^27.0.6",
     "ts-jest": "^27.0.3",
+    "ts-node": "^10.1.0",
     "typescript": "^4.3.5"
   }
 }

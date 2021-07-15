@@ -17,7 +17,7 @@ export class Injector {
 	 * @param name The name of the provided item.
 	 * @param instance The instance of the item.
 	 * @param overwrite Whether to overwrite any existing.
-	 * @returns boolean.
+	 * @returns boolean
 	 * @static
 	 */
 	public static register(name: string, instance: any, overwrite = false): boolean {
@@ -33,12 +33,23 @@ export class Injector {
 	 * so that it can be defined into the injecting class instance.
 	 * 
 	 * @param name The name of the provided item.
-	 * @returns any.
+	 * @returns any
 	 * @static
 	 */
 	public static resolve(name: string): any {
 		if (!this.registry.has(name)) throw new Error('The injectable name you are trying to inject does not exist.');
 		return this.registry.get(name);
+	}
+
+	/**
+	 * This method will simply list all keys registered to the injector
+	 * module, and is mainly for debugging.
+	 * 
+	 * @returns Array<string>
+	 * @static
+	 */
+	public static list(): Array<string> {
+		return Array.from(this.registry.keys());
 	}
 }
 

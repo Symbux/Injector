@@ -16,7 +16,7 @@ The injector package is a dependecy injection tool built on top of TypeScript de
 ```typescript
 import { Inject, Provide } from '@symbux/injector';
 
-@Provide('helper')
+@Provide() // You can optionally give it a name.
 export class NumberHelper {
 	public multiply(num1: number, num2: number): number {
 		return num1 * num2;
