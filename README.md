@@ -1,9 +1,5 @@
 # Dependecy Injection
 
-The injector package is a dependecy injection tool built on top of TypeScript decorators for use with Node.JS/TypeScript applications. The original design is for a framework that is soon to come out, this is a prerequisite library.
-
-<br>
-
 ![Codecov](https://img.shields.io/codecov/c/github/Symbux/Injector)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Symbux/Injector/Build)
 ![GitHub issues](https://img.shields.io/github/issues/Symbux/Injector)
@@ -11,11 +7,11 @@ The injector package is a dependecy injection tool built on top of TypeScript de
 ![npm (scoped)](https://img.shields.io/npm/v/@symbux/injector)
 ![npm](https://img.shields.io/npm/dw/@symbux/injector)
 
-<br>
+The injector package is a dependecy injection tool built on top of TypeScript decorators for use with Node.JS/TypeScript applications. The original design is for a framework that is soon to come out, this is a prerequisite library.
 
 ## Getting Started
 
-Standard usage.
+### Standard usage.
 
 ```typescript
 import { Inject, Provide } from '@symbux/injector';
@@ -37,7 +33,7 @@ export class BusinessLogic {
 }
 ```
 
-Custom usage.
+### Custom usage.
 
 ```typescript
 import { Injector, Inject } from '@symbux/injector';
