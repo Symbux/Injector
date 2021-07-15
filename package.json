@@ -1,0 +1,42 @@
+{
+  "name": "@symbux/injector",
+  "version": "1.0.0",
+  "description": "A dependecy injection library using TypeScript decorators.",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "rm -rf lib && tsc",
+    "lint": "eslint . --ext .ts",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Symbux/Injector.git"
+  },
+  "keywords": [
+    "dependency",
+    "injection",
+    "injector",
+    "symbux",
+    "typescript",
+    "decorator",
+    "jest"
+  ],
+  "author": "Symbux Dev <hello@symbux.dev> (https://symbux.dev)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Symbux/Injector/issues"
+  },
+  "homepage": "https://github.com/Symbux/Injector#readme",
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.24",
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
+    "eslint": "^7.30.0",
+    "jest": "^27.0.6",
+    "ts-jest": "^27.0.3",
+    "typescript": "^4.3.5"
+  }
+}
