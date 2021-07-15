@@ -114,7 +114,7 @@ describe('@symbux/injector', () => {
 
 				class Example3 {
 
-					// @ts-ignore
+					// @ts-expect-error
 					@Inject() public willFail!: Something;
 				}
 
