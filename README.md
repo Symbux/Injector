@@ -48,6 +48,6 @@ const mySpecialVar = Injector.resolve('my_special_var');
 export class BusinessLogic {
 
 	@Inject('my_special_var')
-	public specialVariable!: string;
+	public specialVariable!: number;
 }
 ```
