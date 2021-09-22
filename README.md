@@ -1,11 +1,11 @@
 # Dependecy Injection
 
 [![Codecov](https://img.shields.io/codecov/c/github/Symbux/Injector)](https://codecov.io/github/Symbux/Injector)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Symbux/Injector/Build)
-![GitHub issues](https://img.shields.io/github/issues/Symbux/Injector)
-![NPM](https://img.shields.io/npm/l/@symbux/injector)
-![npm (scoped)](https://img.shields.io/npm/v/@symbux/injector)
-![npm](https://img.shields.io/npm/dw/@symbux/injector)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Symbux/Injector/Build)](https://github.com/Symbux/Injector/actions)
+[![GitHub issues](https://img.shields.io/github/issues/Symbux/Injector)](https://github.com/Symbux/Injector/issues)
+[![NPM](https://img.shields.io/npm/l/@symbux/injector)](https://www.npmjs.com/package/@symbux/injector)
+[![npm (scoped)](https://img.shields.io/npm/v/@symbux/injector)](https://www.npmjs.com/package/@symbux/injector)
+[![npm](https://img.shields.io/npm/dw/@symbux/injector)](https://www.npmjs.com/package/@symbux/injector)
 
 The injector package is a dependecy injection tool built on top of TypeScript decorators for use with Node.JS/TypeScript applications. The original design is for a framework that is soon to come out, this is a prerequisite library.
 
