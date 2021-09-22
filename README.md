@@ -1,6 +1,6 @@
 # Dependecy Injection
 
-![Codecov](https://img.shields.io/codecov/c/github/Symbux/Injector)
+[![Codecov](https://img.shields.io/codecov/c/github/Symbux/Injector)](https://codecov.io/github/Symbux/Injector)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Symbux/Injector/Build)
 ![GitHub issues](https://img.shields.io/github/issues/Symbux/Injector)
 ![NPM](https://img.shields.io/npm/l/@symbux/injector)
