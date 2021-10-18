@@ -43,6 +43,10 @@ describe('@symbux/injector', () => {
 			}).toThrow(new Error('The injectable name you are trying to inject does not exist.'));
 		});
 
+		it('should return null, when resolving a non-existent injectable with canFail set to true', () => {
+			expect(Injector.resolve('non_existent_injectable', true)).toBe(null);
+		});
+
 		it('should allow overwriting existing injectables when overwrite is defined', () => {
 			expect(() => {
 				Injector.register('some_number', 2345, true);

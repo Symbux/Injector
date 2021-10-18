@@ -7,9 +7,10 @@ import { Injector } from '../module/injector';
  * variable instead to inject as the property.
  * 
  * @param name Optional name of injectable.
+ * @param canFail Optional flag to allow injection to fail and return null instead.
  * @returns Function
  */
-export function Inject(name?: string): Function {
+export function Inject(name?: string, canFail?: boolean): Function {
 	return (target: Record<string, unknown>, propertyKey: string) => {
 
 		// Figure out whether we use a class or a name.
@@ -27,7 +28,7 @@ export function Inject(name?: string): Function {
 			get: () => {
 
 				// Resolve when called, so we can registered modules later than when they get used.
-				return Injector.resolve(providingKey);
+				return Injector.resolve(providingKey, canFail);
 			},
 
 			enumerable: true,

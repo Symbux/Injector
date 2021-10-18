@@ -21,5 +21,8 @@ class MyController {
 // Log all keys.
 console.log(Injector.list());
 
+// Inject non-existent.
+console.log(Injector.resolve('non-existent', true) === null);
+
 // Run the controller.
 new MyController().run();

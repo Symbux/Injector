@@ -33,11 +33,15 @@ export class Injector {
 	 * so that it can be defined into the injecting class instance.
 	 * 
 	 * @param name The name of the provided item.
+	 * @param canFail Whether to throw an error if the item is not found (default: false).
 	 * @returns any
 	 * @static
 	 */
-	public static resolve(name: string): any {
-		if (!this.registry.has(name)) throw new Error('The injectable name you are trying to inject does not exist.');
+	public static resolve(name: string, canFail = false): any {
+		if (!this.registry.has(name)) {
+			if (!canFail) throw new Error('The injectable name you are trying to inject does not exist.');
+			return null;
+		}
 		return this.registry.get(name);
 	}
 
