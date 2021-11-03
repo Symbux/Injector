@@ -21,10 +21,11 @@ export class Injector {
 	 * @static
 	 */
 	public static register(name: string, instance: any, overwrite = false): boolean {
+		this.setupGlobal();
 		if (!overwrite) {
-			if (this.registry.has(name)) throw new Error('The name you are trying to register your injectable with already exists.');
+			if (globalThis.injectorRegistry.has(name)) throw new Error('The name you are trying to register your injectable with already exists.');
 		}
-		this.registry.set(name, instance);
+		globalThis.injectorRegistry.set(name, instance);
 		return true;
 	}
 
@@ -38,11 +39,12 @@ export class Injector {
 	 * @static
 	 */
 	public static resolve(name: string, canFail = false): any {
-		if (!this.registry.has(name)) {
+		this.setupGlobal();
+		if (!globalThis.injectorRegistry.has(name)) {
 			if (!canFail) throw new Error('The injectable name you are trying to inject does not exist.');
 			return null;
 		}
-		return this.registry.get(name);
+		return globalThis.injectorRegistry.get(name);
 	}
 
 	/**
@@ -53,7 +55,17 @@ export class Injector {
 	 * @static
 	 */
 	public static list(): Array<string> {
-		return Array.from(this.registry.keys());
+		this.setupGlobal();
+		return Array.from(globalThis.injectorRegistry.keys());
+	}
+
+	/**
+	 * Sets up the global injector registry.
+	 */
+	private static setupGlobal(): void {
+		if (!globalThis.injectorRegistry) {
+			globalThis.injectorRegistry = new Map<string, any>();
+		}
 	}
 }
 
