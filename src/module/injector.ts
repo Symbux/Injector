@@ -9,6 +9,7 @@
 export class Injector {
 
 	private static registry: Map<string, any> = new Map();
+	private static debugMode = false;
 
 	/**
 	 * This method will register a injectable class instance with the registry
@@ -22,6 +23,7 @@ export class Injector {
 	 */
 	public static register(name: string, instance: any, overwrite = false): boolean {
 		this.setupGlobal();
+		if (this.debugMode) console.log(`Registering injectable: ${name}, can overwrite: ${overwrite}`, instance);
 		if (!overwrite) {
 			if (globalThis.injectorRegistry.has(name)) throw new Error('The name you are trying to register your injectable with already exists.');
 		}
@@ -40,6 +42,7 @@ export class Injector {
 	 */
 	public static resolve(name: string, canFail = false): any {
 		this.setupGlobal();
+		if (this.debugMode) console.log(`Resolving injectable: ${name}, can fail: ${canFail}`);
 		if (!globalThis.injectorRegistry.has(name)) {
 			if (!canFail) throw new Error('The injectable name you are trying to inject does not exist.');
 			return null;
@@ -66,6 +69,24 @@ export class Injector {
 		if (!globalThis.injectorRegistry) {
 			globalThis.injectorRegistry = new Map<string, any>();
 		}
+	}
+
+	/**
+	 * Toggle debug mode.
+	 *
+	 * @param status The new debug mode status.
+	 */
+	public static debug(status: boolean): void {
+		this.debugMode = status;
+	}
+
+	/**
+	 * Check if the injector is in debug mode.
+	 *
+	 * @returns boolean
+	 */
+	public static isDebug(): boolean {
+		return this.debugMode;
 	}
 }
 

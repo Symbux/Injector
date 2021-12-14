@@ -56,6 +56,19 @@ describe('@symbux/injector', () => {
 		it('should allow the user to list out all registered keys', () => {
 			expect(Injector.list()).toContain('some_class');
 		});
+
+		it('should offer a debug mode that sets the debugMode property', () => {
+			Injector.debug(true);
+			expect(Injector.isDebug()).toBe(true);
+		});
+
+		it('should output debug information when debug is enabled', () => {
+			Injector.debug(true);
+			const consoleSpy = jest.spyOn(console, 'log');
+			Injector.register('test_debug_output', 'test_debug_output');
+			expect(consoleSpy).toHaveBeenCalledTimes(1);
+			consoleSpy.mockClear();
+		});
 	});
 
 	describe('@Provide decorator', () => {

@@ -21,6 +21,12 @@ export function Provide(name?: string, options?: Array<any>, overwrite?: boolean
 		Reflect.defineMetadata('engine:module', 'provider', target);
 		Reflect.defineMetadata('provider:name', providerName, target);
 
+		// Check for debug.
+		/* istanbul ignore next */
+		if (Injector.isDebug()) {
+			console.log(`Provide called with name: ${name}, target name: ${target.name} || ${target.constructor.name}, options: ${options}, overwrite: ${overwrite}, providing class:`, target);
+		}
+
 		// Register the new class with or without arguments.
 		if (options && options.length > 0) {
 			Injector.register(providerName, new target(...options), overwrite);

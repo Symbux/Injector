@@ -17,6 +17,12 @@ export function Inject(name?: string, canFail?: boolean): Function {
 		const injectClass = Reflect.getMetadata('design:type', target, propertyKey);
 		let providingKey: string = Reflect.getMetadata('provider:name', injectClass);
 
+		// Check for debug.
+		/* istanbul ignore next */
+		if (Injector.isDebug()) {
+			console.log(`Inject called from ${target.name} || ${target.constructor.name} with name: ${name}, providing key: ${providingKey}, can fail: ${canFail}, injecting class;`, injectClass);
+		}
+
 		// If no providingKey is found then we assume the name property or throw an error if no name is given.
 		if (!providingKey) {
 			if (!name) throw new Error('The provided class is not a registered provider, and no name was given.');

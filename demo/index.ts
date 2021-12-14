@@ -1,5 +1,11 @@
 import { Inject, Injector, Provide } from '../src/index';
 
+// Enable debug.
+Injector.debug(true);
+
+// Test manual registration.
+Injector.register('some_number', 2345);
+
 // Create helper.
 @Provide()
 class MyHelper {
